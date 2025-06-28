@@ -1,9 +1,11 @@
 import { Outlet } from "react-router";
 
+import Header from "@/components/layout/Header";
+
 function DefaultLayout() {
   return (
     <>
-      <h1>Layout goes here</h1>
+      <Header />
       <Outlet />
     </>
   );
