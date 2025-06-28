@@ -1,33 +1,10 @@
-import type { Monster } from "@/common/types";
 import MonsterCard from "@/components/MonsterCard";
+import useMonsters from "@/hooks/useMonsters";
 import { AlertCircle, PlusCircle, Swords } from "lucide-react";
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 
 function Home() {
-  const monsters: Monster[] = [
-    {
-      id: "mcf4m5bkzbqz4jwinco",
-      name: "Joe Jonas",
-      attack: 1200,
-      defense: 1400,
-      speed: 1600,
-      hp: 1400,
-      maxHp: 1400,
-      imageUrl:
-        "https://midias.correiobraziliense.com.br/_midias/jpg/2025/06/06/675x450/1_o_que_joe_jonas_disse_sobre_um_possivel_camp_rock_3-53557647.jpg?20250606151146?20250606151146",
-    },
-    {
-      id: "mcf4ncmxii6lvstmg8",
-      name: "Nick Jonas",
-      attack: 1500,
-      defense: 1700,
-      speed: 1200,
-      hp: 1800,
-      maxHp: 1800,
-      imageUrl:
-        "https://m.media-amazon.com/images/M/MV5BY2NkOGFiZGUtOWJhNS00ZjQxLWIyM2UtZGQ5YTA3NTNlMDA1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    },
-  ];
+  const { monsters } = useMonsters();
 
   return (
     <div className="min-h-[calc(100dvh-65px)] bg-gray-900 py-8">
@@ -43,13 +20,13 @@ function Home() {
             Create powerful monsters and battle them in epic 1v1 combat
           </p>
 
-          <NavLink
+          <Link
             to="/create-monster"
             className="inline-flex items-center space-x-2 px-6 py-3 rounded-lg bg-amber-400 text-gray-900 font-medium hover:bg-amber-300 transition-colors"
           >
             <PlusCircle className="h-5 w-5" />
             <span>Create New Monster</span>
-          </NavLink>
+          </Link>
         </div>
 
         {monsters.length === 0 ? (

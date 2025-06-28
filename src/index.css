@@ -4,6 +4,10 @@
   font-family: Geist, 'sans-serif';
 }
 
+button {
+  cursor: pointer;
+}
+
 .monster-card {
   transition: all 0.2s ease-in-out;
 }
