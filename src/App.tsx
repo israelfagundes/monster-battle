@@ -1,8 +1,11 @@
+import { BrowserRouter } from "react-router";
+import Router from "@/components/router";
+
 function App() {
   return (
-    <div>
-      <h1>Monster Battle</h1>
-    </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 
