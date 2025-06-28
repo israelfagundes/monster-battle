@@ -1,7 +1,50 @@
+import type { Monster } from "@/common/types";
+import MonsterCard from "@/components/MonsterCard";
+import { AlertCircle, PlusCircle, Swords } from "lucide-react";
+import { NavLink } from "react-router";
+
 function Home() {
+  const monsters: Monster[] = [];
+
   return (
-    <div>
-      <h1>Monster Battle Home</h1>
+    <div className="min-h-[calc(100dvh-65px)] bg-gray-900 py-8">
+      <div className="container mx-auto max-w-6xl px-4">
+        <div className="mb-8 text-center">
+          <div className="flex items-center gap-3 justify-center mb-4">
+            <Swords className="h-12 w-12" />
+            <h1 className="hero-title text-4xl text-white font-bold">
+              Monster Battle Arena
+            </h1>
+          </div>
+          <p className="text-gray-400 text-lg mb-6">
+            Create powerful monsters and battle them in epic 1v1 combat
+          </p>
+
+          <NavLink
+            to="/create-monster"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-lg bg-amber-400 text-gray-900 font-medium hover:bg-amber-300 transition-colors"
+          >
+            <PlusCircle className="h-5 w-5" />
+            <span>Create New Monster</span>
+          </NavLink>
+        </div>
+
+        {monsters.length === 0 ? (
+          <div className="text-center py-16">
+            <AlertCircle className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+            <h3 className="text-xl text-gray-400 mb-2">No monsters yet</h3>
+            <p className="text-gray-500 mb-6">
+              Create your first monster to start battling!
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {monsters.map((monster) => (
+              <MonsterCard key={monster.id} monster={monster} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
