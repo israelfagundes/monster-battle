@@ -1,8 +1,10 @@
 import type { Monster } from "@/common/types";
 
 export type MonsterCardProps = {
-  monster?: Monster;
+  monster: Monster;
   isSelected?: boolean;
-  onSelect?: () => void;
-  onDelete?: () => void;
+  onSelect?: (monster: Monster) => void;
+  onDelete?: (monster: Monster) => void;
+  showDeleteButton?: boolean;
+  className?: string;
 }

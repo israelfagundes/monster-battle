@@ -3,3 +3,17 @@
 * {
   font-family: Geist, 'sans-serif';
 }
+
+.monster-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.monster-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  scale: 1.05;
+}
+
+.selected-monster {
+  border: 2px solid rgb(250, 204, 21);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
+}
