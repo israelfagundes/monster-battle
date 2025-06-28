@@ -4,6 +4,7 @@ import Home from "@/components/pages/Home";
 import DefaultLayout from "@/components/layout/DefaultLayout";
 import CreateMonster from "@/components/pages/CreateMonster";
 import Battle from "@/components/pages/Battle";
+import NotFound from "@/components/pages/NotFound";
 
 function Router() {
   return (
@@ -13,6 +14,7 @@ function Router() {
         <Route path="/create-monster" element={<CreateMonster />} />
         <Route path="/battle" element={<Battle />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
