@@ -1,6 +1,9 @@
-import { cn } from "@/lib/utils";
-import type { MonsterCardProps } from "./types";
 import { Heart, Shield, Sword, Trash2, Zap } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
+import type { MonsterCardProps } from "@/components/MonsterCard/types";
+import MonsterImage from "@/components/MonsterImage";
 
 function MonsterCard({
   monster,
@@ -30,23 +33,11 @@ function MonsterCard({
           className="absolute top-2 right-2 z-10 rounded-full bg-red-600 p-1 text-white hover:bg-red-700 transition-colors"
           title="Delete Monster"
         >
-          <Trash2 className="h-3 w-3" />
+          <Trash2 className="h-4 w-4" />
         </button>
       )}
 
-      {/* Monster Image */}
-      <div className="relative aspect-square w-full mb-4 rounded-lg overflow-hidden bg-gray-700">
-        <img
-          src={monster.imageUrl}
-          alt={monster.name}
-          className="object-cover h-full w-full"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.src =
-              "https://i.pinimg.com/originals/cd/d8/ac/cdd8ac54774b3b4e030641e219d4a646.jpg";
-          }}
-        />
-      </div>
+      <MonsterImage src={monster.imageUrl} alt={monster.name} />
 
       {/* Monster Name */}
       <h3 className="font-bold text-lg text-amber-400 mb-3 text-center">
