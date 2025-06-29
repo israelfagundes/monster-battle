@@ -4,7 +4,24 @@ import { AlertCircle, PlusCircle, Swords } from "lucide-react";
 import { Link } from "react-router";
 
 function Home() {
-  const { monsters } = useMonsters();
+  const {
+    monsters,
+    isLoading,
+    selectedMonsters,
+    handleSelectMonster,
+    handleDeleteMonster,
+  } = useMonsters();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-400 mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading monsters...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-[calc(100dvh-65px)] bg-gray-900 py-8">
@@ -40,7 +57,13 @@ function Home() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {monsters.map((monster) => (
-              <MonsterCard key={monster.id} monster={monster} />
+              <MonsterCard
+                key={monster.id}
+                monster={monster}
+                isSelected={selectedMonsters.some((m) => m.id === monster.id)}
+                onSelect={handleSelectMonster}
+                onDelete={handleDeleteMonster}
+              />
             ))}
           </div>
         )}
