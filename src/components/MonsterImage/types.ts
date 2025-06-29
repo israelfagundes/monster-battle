@@ -1,0 +1,1 @@
+export type MonsterImageProps = React.ImgHTMLAttributes<HTMLImageElement>

@@ -6,7 +6,9 @@ function DefaultLayout() {
   return (
     <>
       <Header />
-      <Outlet />
+      <section className="min-h-[calc(100dvh-65px)] bg-gray-900 py-8">
+        <Outlet />
+      </section>
     </>
   );
 }
