@@ -7,6 +7,7 @@ A simple and fun monster battle game built with React. Pick your monster and fac
 ## 🛠️ Tech Stack
 
 - **React** – UI library for building interactive components
+- **React Router v7** – Declarative routing for React apps
 - **Vite** – Fast development server and bundler
 - **TypeScript** – Type-safe JavaScript for improved reliability
 - **Tailwind CSS** – Utility-first CSS framework
@@ -52,3 +53,8 @@ yarn install
 - Dynamic UI updates based on battle state
 - Responsive design using Tailwind CSS
 - Simple animations with framer motion
+ 
+## 🧙‍♂️ Author
+
+Made with ❤️ by [Israel Fagundes](https://github.com/israelfagundes)
+
