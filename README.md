@@ -2,7 +2,7 @@
 
 A simple and fun monster battle game built with React. Pick your monster and face off against others in turn-based combat. Designed as a small project to demonstrate state management, React component architecture, and game logic implementation in the frontend.
 
-![monster-battle-demo]("https://github.com/israelfagundes/monster-battle/blob/master/.github/battle-demo.gif")
+![monster-battle-demo](".github/battle-demo.gif")
 
 ## 🛠️ Tech Stack
 
