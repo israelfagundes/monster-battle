@@ -1,69 +1,54 @@
-# React + TypeScript + Vite
+# 🧟‍♂️ Monster Battle
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and fun monster battle game built with React. Pick your monster and face off against others in turn-based combat. Designed as a small project to demonstrate state management, React component architecture, and game logic implementation in the frontend.
 
-Currently, two official plugins are available:
+![monster-battle-demo]("https://github.com/israelfagundes/monster-battle/blob/master/.github/battle-demo.gif")
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **React** – UI library for building interactive components
+- **Vite** – Fast development server and bundler
+- **TypeScript** – Type-safe JavaScript for improved reliability
+- **Tailwind CSS** – Utility-first CSS framework
+- **ESLint + Prettier** – Code quality and formatting tools
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Make sure you have **Node.js** (>= 18) and **npm** (or **yarn**) installed.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/israelfagundes/monster-battle.git
+cd monster-battle
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+# or
+yarn install
 ```
+
+3. Start the development server
+
+```bash
+ npm run dev
+ # or
+ yarn dev
+```
+
+4. Open your browser and visit http://localhost:5173
+
+## 📸 Features
+
+- Select a monster to battle with
+- Turn-based attack system
+- Dynamic UI updates based on battle state
+- Responsive design using Tailwind CSS
+- Simple animations with framer motion
