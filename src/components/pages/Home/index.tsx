@@ -10,6 +10,7 @@ function Home() {
     selectedMonsters,
     handleSelectMonster,
     handleDeleteMonster,
+    handleStartBattle,
   } = useMonsters();
 
   if (isLoading) {
@@ -26,6 +27,7 @@ function Home() {
   return (
     <div className="min-h-[calc(100dvh-65px)] bg-gray-900 py-8">
       <div className="container mx-auto max-w-6xl px-4">
+        {/* Header */}
         <div className="mb-8 text-center">
           <div className="flex items-center gap-3 justify-center mb-4">
             <Swords className="h-12 w-12" />
@@ -46,6 +48,49 @@ function Home() {
           </Link>
         </div>
 
+        {/* Selection Status */}
+        {selectedMonsters.length > 0 && (
+          <div className="mb-6 p-4 rounded-lg bg-gray-800 border border-gray-700">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2">
+                  <Swords className="h-5 w-5 text-amber-400" />
+                  <span className="text-white font-medium">
+                    Selected for Battle: {selectedMonsters.length}/2
+                  </span>
+                </div>
+
+                {selectedMonsters.length > 0 && (
+                  <div className="flex items-center">
+                    {selectedMonsters.map((monster, index) => (
+                      <span
+                        key={monster.id}
+                        className="text-amber-400 font-medium"
+                      >
+                        {monster.name}
+                        {index < selectedMonsters.length - 1 && (
+                          <span className="text-gray-400 mx-2">vs</span>
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {selectedMonsters.length === 2 && (
+                <button
+                  onClick={handleStartBattle}
+                  className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-amber-400 text-gray-900 font-medium hover:bg-amber-300 transition-colors"
+                >
+                  <Swords className="h-4 w-4" />
+                  <span>Start Battle!</span>
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Monsters */}
         {monsters.length === 0 ? (
           <div className="text-center py-16">
             <AlertCircle className="h-16 w-16 text-gray-600 mx-auto mb-4" />

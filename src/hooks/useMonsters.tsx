@@ -1,8 +1,12 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+
 import type { Monster } from "@/common/types";
 import { deleteMonster, loadMonsters } from "@/lib/storage";
-import { useEffect, useState } from "react";
 
 function useMonsters() {
+  const navigate = useNavigate();
+
   const [monsters, setMonsters] = useState<Monster[]>([]);
   const [selectedMonsters, setSelectedMonsters] = useState<Monster[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -40,11 +44,23 @@ function useMonsters() {
     }
   };
 
+  const handleStartBattle = () => {
+    if (selectedMonsters.length === 2) {
+      // Store selected monsters in sessionStorage for battle page
+      sessionStorage.setItem(
+        "battleMonsters",
+        JSON.stringify(selectedMonsters)
+      );
+      navigate("/battle");
+    }
+  };
+
   return {
     isLoading,
     monsters,
     handleSelectMonster,
     handleDeleteMonster,
+    handleStartBattle,
     selectedMonsters,
   };
 }
